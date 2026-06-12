@@ -1,56 +1,135 @@
-# Telecom Customer Churn Analysis
+# Customer Retention & Churn Reduction Analysis
 
-**Author:** Adithya Machavaram    
+**Author:** Adithya  
+**Portfolio for:** Product Analyst / Data Analyst  
 **Tools:** SQL · Python · Power BI  
-**Dataset:** IBM Telco Customer Churn (7,043 records)
-
-## Problem Statement
-
-A telecom company is experiencing customer churn at 26.5% monthly, resulting in ₹1.39 lakhs of recurring revenue at risk — representing 30.5% of total monthly revenue. The business lacks clarity on which customer segments drive this churn and what specific actions would reduce revenue loss. This project aims to identify churn drivers, quantify financial impact, and deliver data-backed retention recommendations.
-
-## Executive Summary
-
-This project analyzed 7,043 customer records to identify the root causes of customer churn. The analysis revealed three critical findings. First, month-to-month contracts churn at 42.7% — fifteen times higher than two-year contracts which churn at only 2.8%. Second, customers paying via electronic check churn at 45.3%, nearly three times the rate of auto-pay users who churn at approximately 15.2%. Third, nearly half of all churn (47.4%) occurs within the first twelve months of customer tenure.
-
-Based on these findings, I built an interactive Power BI dashboard featuring executive KPIs, customer segmentation, revenue impact analysis, and a what-if churn reduction simulator. The dashboard also includes four actionable recommendations ranked by priority and expected revenue impact. A 10% reduction in churn would save approximately ₹1.67 lakhs annually. Implementing all four recommendations could save ₹25 to 30 lakhs per year.
+**Dataset:** IBM Telco Customer Churn · 7,043 records
 
 ---
 
-## Process Overview
+## What This Project Is About
 
-**Data Extraction.** I used SQL to extract customer data segmented by contract type, tenure, payment method, and service usage. The dataset contained 7,043 records with 21 features including monthly charges, total charges, and churn status.
+Telecom companies lose customers every month. Some customers leave within weeks. Others stay for years. This project tries to answer two simple questions: **Who leaves, and what can we do about it?**
 
-**Data Cleaning.** Python with the Pandas library was used to handle missing values, particularly in the TotalCharges column where 11 records contained whitespace instead of null values. I also converted binary categorical variables to consistent formats for analysis.
+I analyzed 7,043 customer records to understand churn patterns. The data includes contract types, payment methods, monthly charges, and service usage. Based on what I found, I built a Power BI dashboard and wrote a set of recommendations that can be tested through experiments.
 
-**Analysis.** I wrote five SQL queries answering specific business questions about churn by contract type, tenure bucket, payment method, internet service status, and service adoption patterns. I also built a logistic regression model using scikit-learn to identify the strongest predictors of churn, which confirmed that contract type, monthly charges, and tenure are the top three drivers.
+This is not just a churn dashboard. It is a retention study that connects data to business action.
 
-**Visualization.** All insights were compiled into a four-page Power BI dashboard with a consistent dark theme. The dashboard includes KPI cards, bar charts, line charts, donut charts, a what-if parameter for churn reduction simulation, and recommendation cards.
+---
 
-**Deployment.** The complete project — including code, SQL queries, dashboard file, screenshots, and this case study — is hosted on GitHub for review.
+## What I Found
 
-## Key Insights
+**Contract type is the strongest predictor of churn.**
 
-**Contract Type is the Strongest Churn Driver.** Customers on month-to-month contracts churn at 42.71%, compared to 11.27% for one-year contracts and just 2.83% for two-year contracts. This represents a fifteen-fold difference between the highest and lowest risk groups.
+Customers on month-to-month plans leave at a rate of 42.7 percent. That is fifteen times higher than customers on two-year contracts, who leave at just 2.8 percent. More than half of all customers — about fifty-five percent — are on month-to-month plans. This is a large group with high risk.
 
-**Payment Method Matters Significantly.** Electronic check users churn at 45.29%, while auto-pay methods perform far better. Bank transfer (automatic) users churn at 16.71%, and credit card (automatic) users churn at 15.24%. The gap between electronic check and auto-pay is nearly thirty percentage points.
+**Payment method matters almost as much.**
 
-**The First Year is Critical.** Customers in their first year churn at 47.44%. This drops to 28.71% in the second year, 20.39% in years two to four, and just 9.51% after four years. Retaining customers past the twelve-month mark reduces churn risk by approximately eighty percent.
+Customers who pay by electronic check churn at 45.3 percent. Customers on auto-pay — whether bank transfer or credit card — churn at around 15 to 16 percent. The gap between these two groups is nearly thirty percentage points.
 
-**Additional Demographics.** Senior citizens churn at 41.7% — nearly double the rate of non-seniors. Fiber optic internet users churn at 41.9%, more than twice the rate of DSL users. Customers without online security churn at 41.8% compared to 14.7% for those with the add-on. Customers without a partner churn at 33.1% versus 19.7% for those with a partner. Paperless billing users churn at 33.6% compared to 16.3% for paper bill users.
+**The first year is critical.**
 
-## Recommendations
+Forty-seven percent of all churn happens in the first twelve months. Customers who stay beyond one year become much more loyal. After four years, the churn rate drops to just 9.5 percent.
 
-Based on the analysis, I have developed four recommendations ranked by expected revenue impact and implementation effort.
+**Other patterns worth noting.**
 
-**High Priority — Convert Month-to-Month Customers to Annual Contracts.** Fifty-five percent of all customers (3,875 out of 7,043) are on month-to-month contracts. These customers churn at 42.7% compared to just 2.8% for two-year contract holders. Offering a 10 to 15 percent discount on annual plans could shift a meaningful portion of this segment to lower-risk contracts. Expected impact: Reduce churn from 42.7% to below 11.3%, recovering approximately ₹80,000 or more in monthly revenue.
+Senior citizens churn at 41.7 percent — nearly double the rate of non-seniors. Fiber optic internet users churn at 41.9 percent, which is more than twice the rate of DSL users. Customers without online security churn at 41.8 percent, compared to 14.7 percent for those who have it. Customers without a partner churn at 33.1 percent versus 19.7 percent for those with a partner. Paperless billing users churn at 33.6 percent compared to 16.3 percent for paper bill users.
 
-**Medium Priority — Incentivize Auto-Pay Over Electronic Check.** Electronic check users churn at 45.3%, while auto-pay users churn at approximately 15.2%. A ₹50 monthly discount or small loyalty credit for auto-pay enrollment could shift behavior. Even converting 8 to 10 percent of electronic check users to auto-pay would yield meaningful churn reduction. Expected impact: Reduce electronic check churn by up to fifty percent, recovering approximately ₹30,000 in monthly revenue.
+**Revenue at risk.**
 
-**Quick Win — Launch First-Year Retention Programme.** Nearly half of all churn (47.4%) happens in the first twelve months. An automated engagement sequence at months three, six, and nine — combined with a loyalty credit at month six — could keep new customers engaged through the critical first year. Expected impact: Reduce first-year churn by 15 to 20 percent, recovering approximately ₹20,000 in monthly revenue.
+Total monthly revenue across all customers is about 4.56 lakh rupees. Customers who have already churned represent 1.39 lakh rupees in monthly revenue at risk. That is about 30.5 percent of total monthly revenue. Annualized, this comes to roughly 16.7 lakh rupees at risk.
 
-**Medium Priority — Upsell Online Security to Fiber Customers.** Fiber optic internet users churn at 41.9%, but customers with online security churn at only 14.7%. Bundling online security at a discounted rate for fiber customers increases switching costs and reduces churn in the highest-risk internet segment. Expected impact: Reduce fiber churn by up to fifty percent, recovering approximately ₹25,000 in monthly revenue.
+Under conservative assumptions, reducing churn by 10 percent could save between 1.2 and 1.5 lakh rupees annually.
 
-**Estimated Total Impact.** If all four recommendations are implemented, the estimated annual savings range from ₹25 to 30 lakhs based on a conservative 15 percent overall churn reduction.
+---
+
+## Cohort Retention Analysis
+
+A cohort is a group of customers who signed up in the same month. Tracking how these groups behave over time tells us whether retention is improving or getting worse.
+
+Here is what the cohort analysis revealed.
+
+For month-to-month customers, retention drops sharply in the first three months. Month 1 retention starts at 100 percent. By Month 3, it falls to 55 to 60 percent. By Month 6, it is down to 45 to 50 percent. By Month 12, only 40 to 45 percent remain. The biggest drop — about 40 to 45 percent — happens between Month 1 and Month 3.
+
+For one-year contract customers, the pattern is very different. Retention stays high. Month 3 retention is 90 to 95 percent. Month 6 retention is 85 to 90 percent. Month 12 retention is 80 to 85 percent. The drop between Month 1 and Month 3 is only 5 to 10 percent.
+
+For two-year contract customers, retention is even stronger. Month 3 retention is 95 to 98 percent. Month 6 retention is 92 to 95 percent. Month 12 retention is 90 to 95 percent. The drop between Month 1 and Month 3 is just 2 to 5 percent.
+
+The key takeaway: the first ninety days are critical. If a customer on a month-to-month plan survives past three months, their retention improves significantly. But most of them never get there.
+
+---
+
+## Recommendations Turned into Experiments
+
+A good analysis leads to action. But action without testing is just guessing. So I turned each recommendation into an experiment that can be A/B tested.
+
+**Experiment 1: Annual upgrade nudge**
+
+The problem: month-to-month customers churn at 42.7 percent, fifteen times higher than two-year contract holders.
+
+The intervention: show an in-app notification at month eleven offering a 10 to 15 percent discount on an annual plan.
+
+The experiment design would involve three variants. The control group sees standard pricing with no offer. Treatment A sees a 10 percent annual discount. Treatment B sees a 15 percent annual discount plus free online security. Each group would need about 3,000 customers to reach statistical significance.
+
+Success metrics would include the annual contract upgrade rate as the primary measure. Secondary measures would include six-month retention. Guardrail metrics would include refund requests, which should not increase by more than 2 percent.
+
+**Experiment 2: Auto-pay incentive**
+
+The problem: electronic check users churn at 45.3 percent compared to 15.2 percent for auto-pay users.
+
+The intervention: offer a 50 rupee monthly credit for the first six months after switching to auto-pay.
+
+This experiment would use a switchback design — alternating the offer monthly to avoid customer contamination. The primary success metric would be auto-pay conversion rate. The secondary metric would be thirty-day delinquency reduction. The guardrail metric would be support complaints related to billing.
+
+**Experiment 3: First-year retention program**
+
+The problem: 47.4 percent of all churn happens in the first twelve months.
+
+The intervention: an automated engagement sequence at months three, six, and nine, plus a loyalty credit at month six.
+
+This would use a pre-post analysis with a matched control group. The primary success metric would be twelve-month retention rate. Secondary metrics would include login frequency and support ticket volume. The guardrail metric would be cost per retained customer, which should stay below three times the monthly charge.
+
+---
+
+## Prioritization Matrix
+
+Not all recommendations are equal. Some deliver high impact with low effort. Others take more work for less return.
+
+Based on business impact and implementation effort, here is how these recommendations rank.
+
+**First priority: Annual upgrade nudge.** Estimated monthly impact is 50,000 to 60,000 rupees. Implementation effort is medium — about three out of five. The priority score is high.
+
+**Second priority: Auto-pay incentive.** Estimated monthly impact is 25,000 to 30,000 rupees. Implementation effort is low — about two out of five. The priority score is solid.
+
+**Third priority: Online security bundle.** Estimated monthly impact is 20,000 to 25,000 rupees. Implementation effort is medium — about three out of five.
+
+**Fourth priority: First-year retention program.** Estimated monthly impact is 15,000 to 20,000 rupees. Implementation effort is high — about four out of five.
+
+The recommendation is to start with the annual upgrade nudge, then run the auto-pay incentive test in parallel. These two together address the largest segments of risk.
+
+---
+
+## Limitations and Next Steps
+
+This analysis uses synthetic IBM Telco data. Real-world churn analysis would require different data and methods.
+
+**Dataset limitations.** There is no daily event-level customer interaction data. There is no support ticket resolution history. There is no competitor pricing or promotion data. There is no marketing campaign response data.
+
+**Methodology limitations.** Correlation does not imply causation. All recommendations should be validated through controlled A/B tests before full rollout. The logistic regression model predicts churn risk but does not identify optimal intervention timing. Financial estimates are directional, not guaranteed.
+
+**Further steps for production implementation.**
+
+First, run an A/B test for the annual upgrade nudge. This would take about two weeks to set up and four weeks to reach statistical significance.
+
+Second, start tracking behavioral events such as login frequency and feature usage. These are leading indicators of churn and would improve the model. This would take about four weeks.
+
+Third, build a real-time churn scoring model that can trigger retention campaigns automatically. This would take about eight weeks.
+
+Fourth, deploy retention campaigns based on churn risk scores. This would take about twelve weeks.
+
+Each recommendation should be tested with a minimum sample size of 3,000 customers per variant to achieve 90 percent power and 95 percent confidence.
+
+---
 
 ## Dashboard Preview
 
@@ -65,3 +144,17 @@ Based on the analysis, I have developed four recommendations ranked by expected 
 
 ### Page 4: Recommendations
 <img width="975" height="556" alt="Page 4" src="https://github.com/user-attachments/assets/07b45aae-73d5-4428-a4bb-a02e39cb062e" />
+
+---
+
+## How This Project Was Built
+
+**Data extraction.** SQL was used to segment customers by contract type, tenure, payment method, and service usage. Five analytical queries answered specific business questions about churn patterns.
+
+**Data cleaning.** Python with the Pandas library handled missing values in the TotalCharges column, where eleven records contained whitespace instead of nulls. Data types were verified and corrected.
+
+**Analysis.** A logistic regression model built with scikit-learn identified the strongest predictors of churn. Contract type, monthly charges, and tenure emerged as the top three drivers.
+
+**Visualization.** All insights were compiled into a four-page Power BI dashboard with a consistent dark theme. The dashboard includes KPI cards, bar charts, line charts, donut charts, a what-if parameter for churn simulation, and recommendation cards.
+
+**Deployment.** The complete project — code, SQL queries, dashboard file, screenshots, and this case study — is hosted on GitHub.
