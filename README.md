@@ -1,7 +1,6 @@
 # Customer Retention & Churn Reduction Analysis
 
-**Author:** Adithya Machavaram
-**Portfolio for:** Product Analyst / Data Analyst  
+**Author:** Adithya Machavaram 
 **Tools:** SQL · Python · Power BI  
 **Dataset:** IBM Telco Customer Churn · 7,043 records
 
@@ -134,7 +133,7 @@ Each recommendation should be tested with a minimum sample size of 3,000 custome
 ## Dashboard Preview
 
 ### Page 1: Executive Summary
-<img width="979" height="560" alt="Page 1" src="https://github.com/user-attachments/assets/723c3e8d-48c8-4200-b905-0456e76224db" />
+![Executive Summary](./screenshots/page1_executive_summary.png)
 
 ### Page 2: Customer Segments
 <img width="977" height="557" alt="Page 2" src="https://github.com/user-attachments/assets/961b01e3-3b67-43c4-bb29-fed538238d64" />
