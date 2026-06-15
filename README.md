@@ -1,6 +1,6 @@
 # Customer Retention & Churn Reduction Analysis
 
-**Author:** Adithya Machavaram
+**Author:** Adithya Machavaram  
 **Tools:** SQL · Python · Power BI  
 **Dataset:** IBM Telco Customer Churn · 7,043 records
 
